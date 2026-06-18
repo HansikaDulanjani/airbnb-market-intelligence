@@ -1,0 +1,80 @@
+Loading datasets...
+
+Datasets loaded successfully!
+
+DATASET SHAPES:
+Listings  -> 28,806 rows x 79 columns
+Calendar  -> 10,514,202 rows x 7 columns
+Reviews   -> 583,333 rows x 6 columns
+
+LISTINGS COLUMNS:
+['id', 'listing_url', 'scrape_id', 'last_scraped', 'source', 'name', 'description', 'neighborhood_overview', 'picture_url', 'host_id', 'host_url', 'host_name', 'host_since', 'host_location', 'host_about', 'host_response_time', 'host_response_rate', 'host_acceptance_rate', 'host_is_superhost', 'host_thumbnail_url', 'host_picture_url', 'host_neighbourhood', 'host_listings_count', 'host_total_listings_count', 'host_verifications', 'host_has_profile_pic', 'host_identity_verified', 'neighbourhood', 'neighbourhood_cleansed', 'neighbourhood_group_cleansed', 'latitude', 'longitude', 'property_type', 'room_type', 'accommodates', 'bathrooms', 'bathrooms_text', 'bedrooms', 'beds', 'amenities', 'price', 'minimum_nights', 'maximum_nights', 'minimum_minimum_nights', 'maximum_minimum_nights', 'minimum_maximum_nights', 'maximum_maximum_nights', 'minimum_nights_avg_ntm', 'maximum_nights_avg_ntm', 'calendar_updated', 'has_availability', 'availability_30', 'availability_60', 'availability_90', 'availability_365', 'calendar_last_scraped', 'number_of_reviews', 'number_of_reviews_ltm', 'number_of_reviews_l30d', 'availability_eoy', 'number_of_reviews_ly', 'estimated_occupancy_l365d', 'estimated_revenue_l365d', 'first_review', 'last_review', 'review_scores_rating', 'review_scores_accuracy', 'review_scores_cleanliness', 'review_scores_checkin', 'review_scores_communication', 'review_scores_location', 'review_scores_value', 'license', 'instant_bookable', 'calculated_host_listings_count', 'calculated_host_listings_count_entire_homes', 'calculated_host_listings_count_private_rooms', 'calculated_host_listings_count_shared_rooms', 'reviews_per_month']
+
+CALENDAR COLUMNS:
+['listing_id', 'date', 'available', 'price', 'adjusted_price', 'minimum_nights', 'maximum_nights']
+
+REVIEWS COLUMNS:
+['listing_id', 'id', 'date', 'reviewer_id', 'reviewer_name', 'comments']
+
+LISTINGS - NULL COUNTS (top 20):
+license                         28806
+calendar_updated                28806
+neighbourhood_group_cleansed    28806
+host_neighbourhood              19436
+neighborhood_overview           19322
+neighbourhood                   19322
+host_about                      11990
+review_scores_value             10096
+review_scores_location          10094
+review_scores_checkin           10093
+review_scores_communication     10091
+review_scores_cleanliness       10091
+review_scores_accuracy          10090
+review_scores_rating            10090
+first_review                    10090
+reviews_per_month               10090
+last_review                     10090
+host_location                    7394
+host_response_time               5647
+host_response_rate               5647
+dtype: int64
+
+CALENDAR - NULL COUNTS:
+listing_id               0
+date                     0
+available                0
+price             10514202
+adjusted_price    10514202
+minimum_nights           0
+maximum_nights           0
+dtype: int64
+
+REVIEWS - NULL COUNTS:
+listing_id        0
+id                0
+date              0
+reviewer_id       0
+reviewer_name     6
+comments         70
+dtype: int64
+
+LISTINGS - SAMPLE (first 2 rows):
+      id  ... review_scores_rating
+0  27934  ...                 4.86
+1  27979  ...                  NaN
+
+[2 rows x 6 columns]
+
+CALENDAR - SAMPLE (first 2 rows):
+   listing_id        date  ... minimum_nights  maximum_nights
+0     5675191  2025-09-27  ...              4            1125
+1     1920431  2025-09-26  ...              1              31
+
+[2 rows x 7 columns]
+
+REVIEWS - SAMPLE (first 2 rows):
+   listing_id  ...                                           comments
+0       27934  ...  We stayed in the apartment for a week and we e...
+1       27934  ...  My girlfriend and I recently stayed in Nuttee'...
+
+[2 rows x 6 columns]
