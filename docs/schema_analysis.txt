@@ -1,0 +1,94 @@
+Loading datasets...
+Datasets loaded!
+
+LISTINGS - DATA TYPES:
+
+id                                                int64
+listing_url                                         str
+scrape_id                                         int64
+last_scraped                                        str
+source                                              str
+                                                 ...   
+calculated_host_listings_count                    int64
+calculated_host_listings_count_entire_homes       int64
+calculated_host_listings_count_private_rooms      int64
+calculated_host_listings_count_shared_rooms       int64
+reviews_per_month                               float64
+Length: 79, dtype: object
+
+
+CALENDAR - DATA TYPES:
+
+listing_id          int64
+date                  str
+available             str
+price             float64
+adjusted_price    float64
+minimum_nights      int64
+maximum_nights      int64
+dtype: object
+
+
+REVIEWS - DATA TYPES:
+
+listing_id       int64
+id               int64
+date               str
+reviewer_id      int64
+reviewer_name      str
+comments           str
+dtype: object
+
+
+KEY RELATIONSHIPS:
+
+Listings.id         -> PRIMARY KEY
+Calendar.listing_id -> FOREIGN KEY -> Listings.id
+Reviews.listing_id  -> FOREIGN KEY -> Listings.id
+
+Calendar rows matching listings: 10,514,202 / 10,514,202
+Reviews rows matching listings:  583,333 / 583,333
+
+
+UNIQUE VALUES:
+
+Unique listings (id):              28,806
+Unique hosts:                      8,874
+Unique neighbourhoods:             50
+Unique room types:                 4
+Room types:                        ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+
+Unique listings in calendar:       28,806
+Date range in calendar:            2025-09-26 to 2026-09-27
+
+Unique listings in reviews:        18,716
+Date range in reviews:             2011-03-16 to 2025-09-27
+
+
+PRICE ANALYSIS (Listings):
+
+count      23273.000000
+mean        2528.749151
+std        16473.896035
+min            4.000000
+25%          923.000000
+50%         1379.000000
+75%         2207.000000
+max      1000000.000000
+Name: price_clean, dtype: float64
+
+
+TOP 10 NEIGHBOURHOODS BY LISTING COUNT:
+
+neighbourhood_cleansed
+Vadhana         4305
+Khlong Toei     3620
+Huai Khwang     3460
+Ratchathewi     1563
+Sathon          1326
+Phra Nakhon     1320
+Phra Khanong    1172
+Bang Rak        1141
+Chatu Chak       862
+Suanluang        858
+Name: count, dtype: int64
