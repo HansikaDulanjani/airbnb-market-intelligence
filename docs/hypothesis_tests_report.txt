@@ -1,0 +1,85 @@
+BANGKOK AIRBNB - HYPOTHESIS TESTS
+============================================================
+Dataset loaded: 23,233 rows
+
+
+TEST 1: Do Superhosts charge higher prices?
+--------------------------------------------------
+H0: No difference in price between superhosts and non-superhosts
+H1: Superhosts charge significantly different prices
+
+Superhost avg price:     2148.09 THB
+Non-superhost avg price: 2128.63 THB
+Test statistic:          54981453.0000
+P-value:                 0.000044
+Result: REJECT H0 (alpha=0.05)
+Conclusion: Significant price difference exists between superhosts and non-superhosts
+
+
+TEST 2: Do Entire homes have higher occupancy than Private rooms?
+--------------------------------------------------
+H0: No difference in occupancy between entire homes and private rooms
+H1: Entire homes have higher occupancy rates
+
+Entire home avg occupancy: 25.85%
+Private room avg occupancy:19.04%
+Test statistic:            59519823.0000
+P-value:                   0.000000
+Result: REJECT H0 (alpha=0.05)
+Conclusion: Entire homes have significantly higher occupancy than private rooms
+
+
+TEST 3: Is there a correlation between price and review scores?
+--------------------------------------------------
+H0: No correlation between price and review scores
+H1: Significant correlation exists
+
+Spearman correlation:    0.0574
+P-value:                 0.000000
+Result: REJECT H0 (alpha=0.05)
+Conclusion: Significant positive correlation between price and review scores
+
+
+TEST 4: Do instant bookable listings have higher occupancy?
+--------------------------------------------------
+H0: No difference in occupancy for instant bookable listings
+H1: Instant bookable listings have higher occupancy
+
+Instant bookable avg occupancy:     22.76%
+Non-instant bookable avg occupancy: 24.66%
+Test statistic:                     69193800.5000
+P-value:                            0.000031
+Result: REJECT H0 (alpha=0.05)
+Conclusion: Instant bookable listings have significantly higher occupancy
+
+
+TEST 5: Do neighbourhoods differ significantly in pricing?
+--------------------------------------------------
+H0: No price difference across neighbourhoods
+H1: At least one neighbourhood has significantly different prices
+
+Top 10 neighbourhoods tested:
+  Vadhana                        avg price: 3235.40 THB
+  Khlong Toei                    avg price: 2410.61 THB
+  Huai Khwang                    avg price: 1725.36 THB
+  Ratchathewi                    avg price: 2098.50 THB
+  Sathon                         avg price: 1941.01 THB
+  Phra Khanong                   avg price: 1591.28 THB
+  Phra Nakhon                    avg price: 1564.55 THB
+  Bang Rak                       avg price: 2753.78 THB
+  Suanluang                      avg price: 1779.90 THB
+  Chatu Chak                     avg price: 1736.90 THB
+
+Kruskal-Wallis H statistic: 1727.0098
+P-value:                    0.000000
+Result: REJECT H0 (alpha=0.05)
+Conclusion: Significant price differences exist across Bangkok neighbourhoods
+
+
+SUMMARY OF ALL HYPOTHESIS TESTS:
+--------------------------------------------------
+Test 1: Superhost pricing           p=0.000044 -> REJECT H0 (Significant)
+Test 2: Room type occupancy         p=0.000000 -> REJECT H0 (Significant)
+Test 3: Price-review correlation    p=0.000000 -> REJECT H0 (Significant)
+Test 4: Instant bookable occupancy  p=0.000031 -> REJECT H0 (Significant)
+Test 5: Neighbourhood pricing       p=0.000000 -> REJECT H0 (Significant)
