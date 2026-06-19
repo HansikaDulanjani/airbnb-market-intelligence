@@ -1,0 +1,108 @@
+Starting data ingestion pipeline...
+Loading from: data/raw
+Found listings.csv -> 58.6 MB
+Found calendar.csv -> 380.1 MB
+Found reviews.csv -> 163.3 MB
+
+Loading listings...
+Listings loaded -> 28,806 rows x 79 columns
+Loading calendar...
+Calendar loaded -> 10,514,202 rows x 7 columns
+Loading reviews...
+Reviews loaded  -> 583,333 rows x 6 columns
+
+Ingestion pipeline complete!
+
+LISTINGS PROFILE:
+
+Total rows:         28,806
+Total columns:      79
+Duplicate rows:     0
+Null values total:  308,760
+
+Null % per column (only columns with nulls):
+license                         100.00
+calendar_updated                100.00
+neighbourhood_group_cleansed    100.00
+host_neighbourhood               67.47
+neighborhood_overview            67.08
+neighbourhood                    67.08
+host_about                       41.62
+review_scores_value              35.05
+review_scores_location           35.04
+review_scores_checkin            35.04
+review_scores_cleanliness        35.03
+review_scores_communication      35.03
+reviews_per_month                35.03
+review_scores_rating             35.03
+first_review                     35.03
+last_review                      35.03
+review_scores_accuracy           35.03
+host_location                    25.67
+host_response_time               19.60
+host_response_rate               19.60
+bathrooms                        19.40
+beds                             19.38
+estimated_revenue_l365d          19.21
+price                            19.21
+host_acceptance_rate             14.85
+has_availability                  7.80
+host_is_superhost                 5.59
+bedrooms                          4.53
+description                       2.69
+bathrooms_text                    0.42
+host_name                         0.03
+host_thumbnail_url                0.03
+host_since                        0.03
+host_has_profile_pic              0.03
+host_identity_verified            0.03
+host_total_listings_count         0.03
+host_verifications                0.03
+host_listings_count               0.03
+host_picture_url                  0.03
+maximum_minimum_nights            0.01
+minimum_minimum_nights            0.01
+maximum_maximum_nights            0.01
+minimum_maximum_nights            0.01
+dtype: float64
+
+
+CALENDAR PROFILE:
+
+Total rows:         10,514,202
+Total columns:      7
+Duplicate rows:     Skipped (too large for memory)
+Null values total:  21,028,404
+
+Availability breakdown:
+available
+t    7205796
+f    3308406
+Name: count, dtype: int64
+
+
+REVIEWS PROFILE:
+
+Total rows:         583,333
+Total columns:      6
+Duplicate rows:     0
+Null values total:  76
+
+Reviews per year:
+year
+2011         5
+2012       192
+2013       851
+2014      2367
+2015      7046
+2016     14811
+2017     26026
+2018     40304
+2019     59010
+2020     18014
+2021      5171
+2022     40567
+2023     97184
+2024    148869
+2025    122916
+Name: count, dtype: int64
