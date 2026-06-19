@@ -1,0 +1,81 @@
+BANGKOK AIRBNB - KEY ANALYTICAL SQL QUERIES
+============================================================
+
+QUERY 1: Top 10 Neighbourhoods by Average Nightly Price
+
+  neighbourhood_cleansed  total_listings  avg_price_thb  median_price_thb
+0              Nong Chok              20        3787.35             708.5
+1            Parthum Wan             567        3331.12            2248.0
+2                Vadhana            3700        3235.40            1823.5
+3               Bang Rak             755        2753.78            1890.0
+4         Samphanthawong             169        2468.95            1879.0
+5              Lat Phrao              59        2421.59            1350.0
+6            Khlong Toei            3117        2410.61            1622.0
+7   Pom Prap Sattru Phai             154        2378.14            1502.5
+8          Khlong Sam Wa              28        2271.50             763.5
+9               Bang Bon              12        2173.50             784.0
+
+
+QUERY 2: Room Type Distribution & Pricing
+
+         room_type  total_listings  avg_price_thb  avg_occupancy_rate  avg_rating
+0  Entire home/apt           16467        2351.85               25.85        4.76
+1     Private room            6255        1663.29               19.04        4.75
+2      Shared room             313         633.08               10.32        4.82
+3       Hotel room             198        2088.44               21.93        4.69
+
+
+QUERY 3: Superhost vs Non-Superhost Performance
+
+   host_is_superhost  total_listings  avg_price  avg_rating  avg_occupancy
+0              False           14344    2128.63        4.70          20.21
+1               True            7416    2148.09        4.86          30.43
+2               <NA>            1473    2226.83        4.77          24.95
+
+
+QUERY 4: Top 10 Hosts by Number of Listings
+
+  host_name  host_is_superhost  total_listings  avg_price  avg_rating
+0        文文              False             291    1403.23        4.66
+1    Haobin              False             272    1364.06        4.79
+2     Jimmy               True             217    7384.86        4.85
+3  Haojiang              False             214    1571.40        4.83
+4  Krittika              False             180    2974.79        4.76
+5      Zoom               <NA>             141    1137.45        4.81
+6   LeFoyer              False             112    2477.11        4.64
+7      Deng              False             108    1616.95        4.84
+8    Yangzi              False             102    1326.37        4.88
+9   Sontana               True              99    1473.85        4.85
+
+
+QUERY 5: Monthly Availability Trend
+
+    year  month  total_days  available_days  availability_pct
+0   2025      9      113120         52375.0             46.30
+1   2025     10      892986        594851.0             66.61
+2   2025     11      864180        624494.0             72.26
+3   2025     12      892986        646720.0             72.42
+4   2026      1      892986        645904.0             72.33
+5   2026      2      806568        609700.0             75.59
+6   2026      3      892986        684462.0             76.65
+7   2026      4      864180        619271.0             71.66
+8   2026      5      892986        646957.0             72.45
+9   2026      6      864180        600903.0             69.53
+10  2026      7      892986        520044.0             58.24
+11  2026      8      892986        521798.0             58.43
+12  2026      9      751072        438317.0             58.36
+
+
+QUERY 6: Estimated Revenue by Neighbourhood
+
+  neighbourhood_cleansed  listings  total_revenue_thb  avg_revenue_per_listing
+0                Vadhana      3700       1.107306e+09                299271.79
+1            Khlong Toei      3117       6.330071e+08                203082.18
+2            Huai Khwang      3023       3.702109e+08                122464.75
+3            Ratchathewi      1241       2.893168e+08                233131.99
+4               Bang Rak       755       1.985422e+08                262969.86
+5                 Sathon      1090       1.920823e+08                176222.27
+6            Parthum Wan       567       1.841719e+08                324818.16
+7           Phra Khanong      1001       1.208223e+08                120701.60
+8            Phra Nakhon       923       9.421907e+07                102079.16
+9             Khlong San       524       8.025807e+07                153164.25
