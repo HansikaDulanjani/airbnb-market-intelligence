@@ -1,0 +1,48 @@
+Starting data ingestion pipeline...
+Loading from: data/raw
+Found listings.csv -> 58.6 MB
+Found calendar.csv -> 380.1 MB
+Found reviews.csv -> 163.3 MB
+
+Loading listings...
+Listings loaded -> 28,806 rows x 79 columns
+Loading calendar...
+Calendar loaded -> 10,514,202 rows x 7 columns
+Loading reviews...
+Reviews loaded  -> 583,333 rows x 6 columns
+
+Ingestion pipeline complete!
+PRICE OUTLIER ANALYSIS:
+
+Price Q1:              923.00 THB
+Price Q3:              2,207.00 THB
+IQR:                   1,284.00 THB
+Lower bound:           -1,003.00 THB
+Upper bound:           4,133.00 THB
+Outliers below lower:  0
+Outliers above upper:  2,154
+Max price:             1,000,000.00 THB
+Min price:             4.00 THB
+
+
+DATA VALIDATION:
+
+Negative prices:       0
+Invalid latitudes:     0
+Invalid longitudes:    0
+
+
+AVAILABILITY OUTLIER ANALYSIS:
+
+Min availability_365:  0
+Max availability_365:  365
+Mean availability_365: 250.05
+Listings over 365:     0
+
+
+REVIEW COUNT OUTLIER ANALYSIS:
+
+Min reviews:           0
+Max reviews:           2926
+Mean reviews:          20.25
+Listings with 0 reviews: 10,090
