@@ -224,3 +224,11 @@ data/*.csv
 *.csv
 *.gz
 *.parquet
+
+# Processed data
+data/processed/
+data/output/
+logs/
+
+# Large files
+*.duckdb

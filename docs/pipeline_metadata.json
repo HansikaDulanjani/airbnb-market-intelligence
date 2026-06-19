@@ -1,0 +1,33 @@
+{
+    "city": "bangkok",
+    "pipeline_start": "2026-06-19T12:39:19.454173",
+    "steps": {
+        "ingestion": {
+            "status": "success",
+            "duration_seconds": 8,
+            "listings_rows": 28806,
+            "calendar_rows": 10514202,
+            "reviews_rows": 583333
+        },
+        "cleaning": {
+            "status": "success",
+            "duration_seconds": 36,
+            "listings_after_cleaning": 23233,
+            "reviews_after_cleaning": 583263
+        },
+        "enrichment": {
+            "status": "success",
+            "duration_seconds": 4,
+            "master_rows": 23233,
+            "master_columns": 96,
+            "neighbourhoods": 50
+        },
+        "star_schema": {
+            "status": "success",
+            "duration_seconds": 27,
+            "database": "data/output/airbnb_bangkok.duckdb"
+        }
+    },
+    "pipeline_end": "2026-06-19T12:40:38.450271",
+    "status": "success"
+}
