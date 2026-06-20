@@ -1,0 +1,8 @@
+BANGKOK AIRBNB - LLM POWERED INSIGHTS
+============================================================
+Model: Claude Sonnet (claude-sonnet-4-6)
+Data: Inside Airbnb Bangkok Dataset
+============================================================
+
+Q1: What are the top 3 investment opportunities in Bangkok Airbnb market?
+--------------------------------------------------
