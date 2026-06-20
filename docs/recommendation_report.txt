@@ -1,0 +1,81 @@
+BANGKOK AIRBNB - LISTING RECOMMENDATION SYSTEM
+============================================================
+Dataset loaded: 23,233 listings
+
+Building content-based recommendation system...
+Computing TF-IDF vectors...
+Computing similarity matrix...
+
+TESTING RECOMMENDATION SYSTEM:
+--------------------------------------------------
+
+Source Listing:
+  ID:            27934
+  Name:          Nice room with superb city view
+  Neighbourhood: Ratchathewi
+  Room Type:     Entire home/apt
+  Price:         1595 THB
+  Rating:        4.86
+
+  Top 5 Similar Listings:
+  1. DowntownBTS Phromphong nice park malls restaurants
+     Neighbourhood: Khlong Toei | Price: 1299 THB | Rating: 4.87 | Similarity: 0.7176
+  2. Free pick-up, Bangkok Sphere (City View)
+     Neighbourhood: Bang Kapi | Price: 2500 THB | Rating: 4.95 | Similarity: 0.7039
+  3. Free pick-up, Stunning View of Bangkok
+     Neighbourhood: Bang Kapi | Price: 1143 THB | Rating: 4.86 | Similarity: 0.6635
+  4. 1BR: BTS Phromphong, Emporium, Emquartier
+     Neighbourhood: Khlong Toei | Price: 1890 THB | Rating: 4.92 | Similarity: 0.6526
+  5. Nice tranquil room in Thonglor Bkk
+     Neighbourhood: Vadhana | Price: 1018 THB | Rating: 4.73 | Similarity: 0.6363
+
+Source Listing:
+  ID:            47516
+  Name:          Beautiful waterfront house
+  Neighbourhood: Don Mueang
+  Room Type:     Entire home/apt
+  Price:         4188 THB
+  Rating:        4.86
+
+  Top 5 Similar Listings:
+  1. Room@ Don Muang Airport P.P.H.Condo
+     Neighbourhood: Don Mueang | Price: 741 THB | Rating: 4.63 | Similarity: 0.6031
+  2. ChillHouse24 @ DonMueang
+     Neighbourhood: Don Mueang | Price: 1608 THB | Rating: 4.83 | Similarity: 0.5954
+  3. Entries HOUSE High security for Fam
+     Neighbourhood: Suanluang | Price: 7249 THB | Rating: 4.86 | Similarity: 0.5485
+  4. NeverEndingJourney's home :) DMK Donmuang
+     Neighbourhood: Don Mueang | Price: 1455 THB | Rating: 4.77 | Similarity: 0.5331
+  5. Loft Style Double Room @ Beige Poshtels Don Mueang
+     Neighbourhood: Don Mueang | Price: 875 THB | Rating: 4.86 | Similarity: 0.5307
+
+Source Listing:
+  ID:            48736
+  Name:          Condo with Chaopraya River View
+  Neighbourhood: Rat Burana
+  Room Type:     Private room
+  Price:         1450 THB
+  Rating:        5.00
+
+  Top 5 Similar Listings:
+  1. Private and Nice Room Center of Bangkok SilomSoi 3
+     Neighbourhood: Bang Rak | Price: 1749 THB | Rating: 4.94 | Similarity: 0.6148
+  2. Remote home
+     Neighbourhood: Suanluang | Price: 1275 THB | Rating: 4.79 | Similarity: 0.5973
+  3. 1BR/ Spectacular River View/ Wifi
+     Neighbourhood: Rat Burana | Price: 500 THB | Rating: 4.72 | Similarity: 0.596
+  4. Twin House – Vintage Vibe Room • Near BTS
+     Neighbourhood: Phra Khanong | Price: 586 THB | Rating: 5.00 | Similarity: 0.5881
+  5. Twin House – Oriental Nest • Private Bathroom
+     Neighbourhood: Phra Khanong | Price: 778 THB | Rating: 4.92 | Similarity: 0.5765
+
+
+RECOMMENDATION SYSTEM SUMMARY:
+--------------------------------------------------
+Total listings indexed:     2,000
+Feature dimensions:         504
+Text weight:                70%
+Numerical weight:           30%
+Algorithm:                  Content-Based TF-IDF + Cosine Similarity
+Features used:              name, amenities, neighbourhood,
+                            room_type, price, rating, occupancy
