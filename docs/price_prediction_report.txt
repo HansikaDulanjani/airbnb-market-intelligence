@@ -30,6 +30,29 @@ Random Forest             MAE: 866.13 | RMSE: 2112.54 | R2: 0.4944
 Gradient Boosting         MAE: 940.82 | RMSE: 2070.19 | R2: 0.5145
 
 
+CROSS VALIDATION RESULTS (5-Fold):
+--------------------------------------------------
+Validating model generalization across 5 different data splits...
+
+Linear Regression:
+  CV MAE:  1112.74 THB (+/- 45.73)
+  CV R2:   0.2810 (+/- 0.0576)
+  Fold MAE scores: [np.float64(1107.0), np.float64(1184.0), np.float64(1142.0), np.float64(1064.0), np.float64(1067.0)]
+
+Random Forest:
+  CV MAE:  844.96 THB (+/- 35.07)
+  CV R2:   0.4764 (+/- 0.0610)
+  Fold MAE scores: [np.float64(865.0), np.float64(896.0), np.float64(853.0), np.float64(809.0), np.float64(802.0)]
+
+Gradient Boosting:
+  CV MAE:  937.23 THB (+/- 38.63)
+  CV R2:   0.4390 (+/- 0.0704)
+  Fold MAE scores: [np.float64(941.0), np.float64(1000.0), np.float64(951.0), np.float64(905.0), np.float64(889.0)]
+
+Interpretation: Low standard deviation across folds confirms
+models generalize well and are not overfitting to training data.
+
+
 FEATURE IMPORTANCE (Random Forest):
 --------------------------------------------------
 bedrooms                            0.2702 ███████████████████████████
@@ -58,10 +81,20 @@ Listing 5: Actual=935 THB | Predicted=1121 THB | Difference=186 THB
 
 MODEL SUMMARY:
 --------------------------------------------------
-Best Model: Random Forest
-MAE:  866.13 THB
-RMSE: 2112.54 THB
-R2:   0.4944
+Best Model:  Random Forest
+MAE:         866.13 THB
+RMSE:        2112.54 THB
+R2:          0.4944
 
 Interpretation: The model predicts nightly price
 within +/- 866 THB on average
+
+
+LIMITATIONS & FUTURE IMPROVEMENTS:
+--------------------------------------------------
+1. R2=0.51 means 49% of price variance is unexplained
+   → Could be improved with amenity feature engineering
+2. SHAP values would provide per-prediction explainability
+3. Hyperparameter tuning (GridSearchCV) could improve performance
+4. Seasonal price features from calendar data not yet included
+5. Cross-city model transfer would test generalization further

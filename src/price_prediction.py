@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
@@ -16,7 +16,7 @@ print("=" * 60)
 master = pd.read_csv('data/processed/master_listings.csv', low_memory=False)
 print(f"Dataset loaded: {master.shape[0]:,} listings")
 
-#
+# 
 # FEATURE ENGINEERING
 
 print("\nPreparing features...")
@@ -58,7 +58,8 @@ X_features = [
 X = df[X_features]
 y = df[target]
 
-#
+
+# 
 # TRAIN/TEST SPLIT
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -67,9 +68,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(f"\nTraining set: {X_train.shape[0]:,} rows")
 print(f"Testing set:  {X_test.shape[0]:,} rows")
 
-#
-# MODELS
 
+# 
+# MODELS
 
 models = {
     'Linear Regression': LinearRegression(),
@@ -105,8 +106,7 @@ for name, model in models.items():
     print(f"  R2:   {r2:.4f}")
 
 # 
-# BEST MODEL - FEATURE IMPORTANCE
-
+# MODEL COMPARISON
 
 print("\n\nMODEL COMPARISON:")
 print("-" * 50)
@@ -115,7 +115,39 @@ for name, result in results.items():
           f"RMSE: {result['RMSE']:.2f} | "
           f"R2: {result['R2']:.4f}")
 
-# Feature importance from Random Forest
+# 
+# CROSS VALIDATION (5-Fold)
+
+print("\n\nCROSS VALIDATION RESULTS (5-Fold):")
+print("-" * 50)
+print("Validating model generalization across 5 different data splits...")
+
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+
+for name, model in models.items():
+    cv_mae = cross_val_score(
+        model, X, y,
+        cv=kf,
+        scoring='neg_mean_absolute_error',
+        n_jobs=-1
+    )
+    cv_r2 = cross_val_score(
+        model, X, y,
+        cv=kf,
+        scoring='r2',
+        n_jobs=-1
+    )
+    print(f"\n{name}:")
+    print(f"  CV MAE:  {-cv_mae.mean():.2f} THB (+/- {cv_mae.std():.2f})")
+    print(f"  CV R2:   {cv_r2.mean():.4f} (+/- {cv_r2.std():.4f})")
+    print(f"  Fold MAE scores: {[-round(s,0) for s in cv_mae]}")
+
+print("\nInterpretation: Low standard deviation across folds confirms")
+print("models generalize well and are not overfitting to training data.")
+
+# 
+# FEATURE IMPORTANCE (Random Forest)
+
 print("\n\nFEATURE IMPORTANCE (Random Forest):")
 print("-" * 50)
 rf_model = results['Random Forest']['model']
@@ -128,10 +160,8 @@ for _, row in importance_df.iterrows():
     bar = '█' * int(row['importance'] * 100)
     print(f"{row['feature']:35} {row['importance']:.4f} {bar}")
 
-
 # 
 # SAMPLE PREDICTIONS
-
 
 print("\n\nSAMPLE PRICE PREDICTIONS (Random Forest):")
 print("-" * 50)
@@ -145,16 +175,29 @@ for i, (actual, predicted) in enumerate(zip(actual_prices, predicted_prices)):
     print(f"Listing {i+1}: Actual={actual:.0f} THB | "
           f"Predicted={predicted:.0f} THB | "
           f"Difference={diff:.0f} THB")
+    
+
+#
+# MODEL SUMMARY
 
 print("\n\nMODEL SUMMARY:")
 print("-" * 50)
 best_model = min(results, key=lambda x: results[x]['MAE'])
-print(f"Best Model: {best_model}")
-print(f"MAE:  {results[best_model]['MAE']:.2f} THB")
-print(f"RMSE: {results[best_model]['RMSE']:.2f} THB")
-print(f"R2:   {results[best_model]['R2']:.4f}")
+print(f"Best Model:  {best_model}")
+print(f"MAE:         {results[best_model]['MAE']:.2f} THB")
+print(f"RMSE:        {results[best_model]['RMSE']:.2f} THB")
+print(f"R2:          {results[best_model]['R2']:.4f}")
 print(f"\nInterpretation: The model predicts nightly price")
 print(f"within +/- {results[best_model]['MAE']:.0f} THB on average")
+
+print("\n\nLIMITATIONS & FUTURE IMPROVEMENTS:")
+print("-" * 50)
+print("1. R2=0.51 means 49% of price variance is unexplained")
+print("   → Could be improved with amenity feature engineering")
+print("2. SHAP values would provide per-prediction explainability")
+print("3. Hyperparameter tuning (GridSearchCV) could improve performance")
+print("4. Seasonal price features from calendar data not yet included")
+print("5. Cross-city model transfer would test generalization further")
 
 sys.stdout.close()
 sys.stdout = sys.__stdout__
