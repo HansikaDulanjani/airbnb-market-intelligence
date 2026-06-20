@@ -7,79 +7,112 @@ TEST 1: Do Superhosts charge higher prices?
 --------------------------------------------------
 H0: No difference in price between superhosts and non-superhosts
 H1: Superhosts charge significantly different prices
+Test selected: Mann-Whitney U (non-parametric, price not normally distributed)
 
-Superhost avg price:     2148.09 THB
-Non-superhost avg price: 2128.63 THB
-Test statistic:          54981453.0000
-P-value:                 0.000044
+Superhost avg price:        2148.09 THB
+Non-superhost avg price:    2128.63 THB
+Superhost 95% CI:           (2089.70, 2206.48) THB
+Non-superhost 95% CI:       (2077.28, 2179.98) THB
+Test statistic:             54981453.0000
+P-value:                    0.000044
+Cohen's d effect size:      0.0066 (Negligible)
 Result: REJECT H0 (alpha=0.05)
 Conclusion: Significant price difference exists between superhosts and non-superhosts
+Business Interpretation: Although statistically significant, the small effect size
+suggests superhosts charge only marginally more. The real superhost advantage
+lies in occupancy (30.43% vs 20.21%), not pricing power.
 
 
 TEST 2: Do Entire homes have higher occupancy than Private rooms?
 --------------------------------------------------
 H0: No difference in occupancy between entire homes and private rooms
 H1: Entire homes have higher occupancy rates
+Test selected: Mann-Whitney U one-tailed (directional hypothesis)
 
-Entire home avg occupancy: 25.85%
-Private room avg occupancy:19.04%
-Test statistic:            59519823.0000
-P-value:                   0.000000
+Entire home avg occupancy:  25.85%
+Private room avg occupancy: 19.04%
+Entire home 95% CI:         (25.43, 26.27)%
+Private room 95% CI:        (18.42, 19.67)%
+Test statistic:             59519823.0000
+P-value:                    0.000000
+Cohen's d effect size:      0.2530 (Small)
 Result: REJECT H0 (alpha=0.05)
 Conclusion: Entire homes have significantly higher occupancy than private rooms
+Business Interpretation: Entire homes attract 35% more bookings than private rooms.
+Guests strongly prefer privacy. Hosts should consider converting private room
+listings to entire home rentals where possible to maximize revenue.
 
 
 TEST 3: Is there a correlation between price and review scores?
 --------------------------------------------------
 H0: No correlation between price and review scores
 H1: Significant correlation exists
+Test selected: Spearman correlation (non-parametric, handles outliers better)
 
-Spearman correlation:    0.0574
-P-value:                 0.000000
+Spearman correlation:       0.0574
+P-value:                    0.000000
+Effect interpretation:      Negligible
 Result: REJECT H0 (alpha=0.05)
 Conclusion: Significant positive correlation between price and review scores
+Business Interpretation: While statistically significant, the negligible correlation
+(r=0.057) means price alone does not predict review quality. Budget listings
+can achieve equally high scores through excellent host communication and cleanliness.
 
 
 TEST 4: Do instant bookable listings have higher occupancy?
 --------------------------------------------------
 H0: No difference in occupancy for instant bookable listings
 H1: Instant bookable listings have higher occupancy
+Test selected: Mann-Whitney U one-tailed (directional hypothesis)
 
-Instant bookable avg occupancy:     22.76%
-Non-instant bookable avg occupancy: 24.66%
-Test statistic:                     69193800.5000
-P-value:                            0.000031
+Instant bookable avg:       22.76%
+Non-instant bookable avg:   24.66%
+Instant 95% CI:             (22.28, 23.24)%
+Non-instant 95% CI:         (24.16, 25.16)%
+Test statistic:             69193800.5000
+P-value:                    0.000031
+Cohen's d effect size:      -0.0704 (Negligible)
 Result: REJECT H0 (alpha=0.05)
-Conclusion: Instant bookable listings have significantly higher occupancy
+Conclusion: Counter-intuitive finding — non-instant listings show HIGHER occupancy!
+Business Interpretation: Hosts who screen guests (non-instant booking) may attract
+higher-quality, longer-stay guests. This challenges the common assumption that
+removing friction always improves booking rates.
 
 
 TEST 5: Do neighbourhoods differ significantly in pricing?
 --------------------------------------------------
 H0: No price difference across neighbourhoods
 H1: At least one neighbourhood has significantly different prices
+Test selected: Kruskal-Wallis H (non-parametric ANOVA for multiple groups)
 
 Top 10 neighbourhoods tested:
-  Vadhana                        avg price: 3235.40 THB
-  Khlong Toei                    avg price: 2410.61 THB
-  Huai Khwang                    avg price: 1725.36 THB
-  Ratchathewi                    avg price: 2098.50 THB
-  Sathon                         avg price: 1941.01 THB
-  Phra Khanong                   avg price: 1591.28 THB
-  Phra Nakhon                    avg price: 1564.55 THB
-  Bang Rak                       avg price: 2753.78 THB
-  Suanluang                      avg price: 1779.90 THB
-  Chatu Chak                     avg price: 1736.90 THB
+  Vadhana                        avg: 3235 THB | 95% CI: (3093, 3378)
+  Khlong Toei                    avg: 2411 THB | 95% CI: (2307, 2514)
+  Huai Khwang                    avg: 1725 THB | 95% CI: (1669, 1782)
+  Ratchathewi                    avg: 2098 THB | 95% CI: (1948, 2249)
+  Sathon                         avg: 1941 THB | 95% CI: (1785, 2097)
+  Phra Khanong                   avg: 1591 THB | 95% CI: (1456, 1726)
+  Phra Nakhon                    avg: 1565 THB | 95% CI: (1477, 1652)
+  Bang Rak                       avg: 2754 THB | 95% CI: (2543, 2965)
+  Suanluang                      avg: 1780 THB | 95% CI: (1557, 2003)
+  Chatu Chak                     avg: 1737 THB | 95% CI: (1558, 1916)
 
 Kruskal-Wallis H statistic: 1727.0098
 P-value:                    0.000000
+Effect size (H stat):       1727.01 (Higher = stronger effect)
 Result: REJECT H0 (alpha=0.05)
 Conclusion: Significant price differences exist across Bangkok neighbourhoods
+Business Interpretation: Location is a major pricing determinant in Bangkok.
+Vadhana commands 87% premium over Huai Khwang despite similar listing counts.
+Investors should prioritize central Bangkok neighbourhoods for maximum yield.
 
 
 SUMMARY OF ALL HYPOTHESIS TESTS:
 --------------------------------------------------
-Test 1: Superhost pricing           p=0.000044 -> REJECT H0 (Significant)
-Test 2: Room type occupancy         p=0.000000 -> REJECT H0 (Significant)
-Test 3: Price-review correlation    p=0.000000 -> REJECT H0 (Significant)
-Test 4: Instant bookable occupancy  p=0.000031 -> REJECT H0 (Significant)
-Test 5: Neighbourhood pricing       p=0.000000 -> REJECT H0 (Significant)
+Test                                P-Value      Effect     Result
+--------------------------------------------------------------------------------
+Test 1: Superhost pricing           0.000044     0.0066     SIGNIFICANT
+Test 2: Room type occupancy         0.000000     0.2530     SIGNIFICANT
+Test 3: Price-review correlation    0.000000     0.0574     SIGNIFICANT
+Test 4: Instant bookable            0.000031     -0.0704    SIGNIFICANT
+Test 5: Neighbourhood pricing       0.000000     H=1727     SIGNIFICANT
