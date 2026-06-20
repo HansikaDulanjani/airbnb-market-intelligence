@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 import sys
+import shap
 
 sys.stdout = open('docs/price_prediction_report.txt', 'w', encoding='utf-8')
 
@@ -198,6 +199,36 @@ print("2. SHAP values would provide per-prediction explainability")
 print("3. Hyperparameter tuning (GridSearchCV) could improve performance")
 print("4. Seasonal price features from calendar data not yet included")
 print("5. Cross-city model transfer would test generalization further")
+
+
+# 
+# SHAP VALUES - MODEL EXPLAINABILITY
+
+print("\n\nSHAP VALUE ANALYSIS (Random Forest):")
+print("-" * 50)
+print("Computing SHAP values for model explainability...")
+
+explainer = shap.TreeExplainer(rf_model)
+shap_values = explainer.shap_values(X_test.head(100))
+
+# Mean absolute SHAP values
+shap_importance = pd.DataFrame({
+    'feature': X_features,
+    'mean_shap': np.abs(shap_values).mean(axis=0)
+}).sort_values('mean_shap', ascending=False)
+
+print("\nFeature Impact on Price Prediction (SHAP):")
+for _, row in shap_importance.iterrows():
+    bar = '█' * int(row['mean_shap'] / 10)
+    print(f"{row['feature']:35} {row['mean_shap']:.2f} THB {bar}")
+
+print("\nInterpretation:")
+print(f"Top feature: {shap_importance.iloc[0]['feature']} impacts")
+print(f"price predictions by {shap_importance.iloc[0]['mean_shap']:.0f} THB on average")
+print("\nSHAP values show ACTUAL impact in THB unlike")
+print("feature importance which shows relative proportions.")
+print("This makes the model fully explainable to business stakeholders.")
+
 
 sys.stdout.close()
 sys.stdout = sys.__stdout__

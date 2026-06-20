@@ -98,3 +98,31 @@ LIMITATIONS & FUTURE IMPROVEMENTS:
 3. Hyperparameter tuning (GridSearchCV) could improve performance
 4. Seasonal price features from calendar data not yet included
 5. Cross-city model transfer would test generalization further
+
+
+SHAP VALUE ANALYSIS (Random Forest):
+--------------------------------------------------
+Computing SHAP values for model explainability...
+
+Feature Impact on Price Prediction (SHAP):
+bedrooms                            863.60 THB ██████████████████████████████████████████████████████████████████████████████████████
+accommodates                        259.76 THB █████████████████████████
+neighbourhood_encoded               248.32 THB ████████████████████████
+review_scores_location              215.28 THB █████████████████████
+availability_365                    214.37 THB █████████████████████
+host_tenure_years                   207.15 THB ████████████████████
+minimum_nights                      155.57 THB ███████████████
+room_type_encoded                   93.50 THB █████████
+review_scores_cleanliness           51.86 THB █████
+superhost_encoded                   38.86 THB ███
+review_scores_rating                34.33 THB ███
+beds                                31.79 THB ███
+instant_encoded                     22.74 THB ██
+
+Interpretation:
+Top feature: bedrooms impacts
+price predictions by 864 THB on average
+
+SHAP values show ACTUAL impact in THB unlike
+feature importance which shows relative proportions.
+This makes the model fully explainable to business stakeholders.
