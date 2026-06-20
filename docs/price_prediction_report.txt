@@ -1,0 +1,67 @@
+BANGKOK AIRBNB - PRICE PREDICTION MODEL
+============================================================
+Dataset loaded: 23,233 listings
+
+Preparing features...
+Clean dataset: 21,753 rows
+
+Training set: 17,402 rows
+Testing set:  4,351 rows
+
+Training models...
+Training Linear Regression...
+  MAE:  1107.47 THB
+  RMSE: 2414.81 THB
+  R2:   0.3394
+Training Random Forest...
+  MAE:  866.13 THB
+  RMSE: 2112.54 THB
+  R2:   0.4944
+Training Gradient Boosting...
+  MAE:  940.82 THB
+  RMSE: 2070.19 THB
+  R2:   0.5145
+
+
+MODEL COMPARISON:
+--------------------------------------------------
+Linear Regression         MAE: 1107.47 | RMSE: 2414.81 | R2: 0.3394
+Random Forest             MAE: 866.13 | RMSE: 2112.54 | R2: 0.4944
+Gradient Boosting         MAE: 940.82 | RMSE: 2070.19 | R2: 0.5145
+
+
+FEATURE IMPORTANCE (Random Forest):
+--------------------------------------------------
+bedrooms                            0.2702 ███████████████████████████
+host_tenure_years                   0.2211 ██████████████████████
+availability_365                    0.1060 ██████████
+neighbourhood_encoded               0.1015 ██████████
+accommodates                        0.0840 ████████
+minimum_nights                      0.0392 ███
+beds                                0.0388 ███
+review_scores_location              0.0375 ███
+review_scores_cleanliness           0.0233 ██
+review_scores_rating                0.0220 ██
+room_type_encoded                   0.0218 ██
+instant_encoded                     0.0183 █
+superhost_encoded                   0.0163 █
+
+
+SAMPLE PRICE PREDICTIONS (Random Forest):
+--------------------------------------------------
+Listing 1: Actual=1045 THB | Predicted=1886 THB | Difference=841 THB
+Listing 2: Actual=2427 THB | Predicted=1666 THB | Difference=761 THB
+Listing 3: Actual=965 THB | Predicted=1250 THB | Difference=285 THB
+Listing 4: Actual=1598 THB | Predicted=1311 THB | Difference=287 THB
+Listing 5: Actual=935 THB | Predicted=1121 THB | Difference=186 THB
+
+
+MODEL SUMMARY:
+--------------------------------------------------
+Best Model: Random Forest
+MAE:  866.13 THB
+RMSE: 2112.54 THB
+R2:   0.4944
+
+Interpretation: The model predicts nightly price
+within +/- 866 THB on average
