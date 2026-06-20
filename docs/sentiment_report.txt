@@ -1,0 +1,71 @@
+BANGKOK AIRBNB - SENTIMENT ANALYSIS ON REVIEWS
+============================================================
+
+Loading reviews...
+Total reviews: 583,263
+
+Analyzing sentiment on 10,000 reviews...
+
+SENTIMENT DISTRIBUTION:
+sentiment
+Positive    8196
+Neutral     1417
+Negative     387
+Name: count, dtype: int64
+
+Percentage breakdown:
+sentiment
+Positive    81.96
+Neutral     14.17
+Negative     3.87
+Name: proportion, dtype: float64
+
+Average compound score: 0.6688
+Max score: 0.9993
+Min score: -0.9943
+
+
+TOP 3 MOST POSITIVE REVIEWS:
+
+Score: 0.9993
+Review: My boyfriend and I stayed at Piya's place from December 30the till January 5th. Piya's place is very small, but cozy. The living room is tiny, but the bedroom and especially bathroom is very good size...
+
+Score: 0.9990
+Review: our little sanctuary in bangkok! the apartment was amazing. the location is in a local neighbourhood, beside the financial area of bangkok, out of the main stream tourist trap areas but close enough t...
+
+Score: 0.9990
+Review: I stayed during eight nights in Nokina’s: "Beautiful Apt near Subway Free Wifi" and was very happy. :-) :-)) Apartment is conveniently located on Thanon Phahonyotin near a bus station but "deep enough...
+
+
+TOP 3 MOST NEGATIVE REVIEWS:
+
+Score: -0.9943
+Review: I stayed a few days days in Jeab's place although the place is managed by someone named Sasa (wich I never actually met) Pros : - The apartment is pretty big (47m2), very luminous, quiet and well equi...
+
+Score: -0.9906
+Review: Als ich gegen 14:00h ankam, machte mir eine Angestellte von Wimonpak auf und zeigte mir das Loft. Die Beschreibung war ganz gut, es ist relativ ruhig, da ca.100m von der Hauptverkehrsstr. entfernt. Da...
+
+Score: -0.9901
+Review: This condo has space and views, limited decor from a previous luxury era. We enjoyed the wall of windows. The washer & dryer were much appreciated. The kitchen is roomy, but there was no coffee maker,...
+
+
+SENTIMENT BY YEAR:
+review_year
+2011    0.8483
+2012    0.8302
+2013    0.8705
+2014    0.7959
+2015    0.7284
+2016    0.6980
+2017    0.6076
+2018    0.5972
+2019    0.6185
+2020    0.5497
+2021    0.6931
+2022    0.6649
+2023    0.5572
+2024    0.5158
+2025    0.5534
+Name: compound_score, dtype: float64
+
+Saved reviews with sentiment to data/processed/reviews_with_sentiment.csv
