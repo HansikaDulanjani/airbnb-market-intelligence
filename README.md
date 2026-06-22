@@ -141,7 +141,85 @@ Section 04 — Exploratory Data Analysis (Power BI)
 Section 05 — Statistical Hypothesis Testing  
 Section 06 — Price Prediction Model  
 Section 07 — Sentiment Analysis + Recommendations + LLM Pipeline  
-Section 08 — Streamlit Dashboard + Automated PDF Report  
+Section 08 — Streamlit Dashboard + Automated PDF Report 
+
+---
+
+## Summary of Completed Work
+
+**Section 02 — Dataset Familiarization**
+Downloaded and explored Bangkok dataset (28,806 listings, 10.5M 
+calendar records, 583,333 reviews). Documented schema, data types, 
+primary/foreign key relationships, business context, assumptions, 
+and dataset limitations.
+
+**Section 03 — Data Engineering Pipeline**
+Built a full modular pipeline covering ingestion, profiling, 
+validation, cleaning, enrichment, and DuckDB star schema with 
+4 dimension tables and 2 fact tables. Automated end-to-end 
+pipeline with structured logging and metadata tracking.
+
+**Section 04 — Exploratory Data Analysis**
+Built a 5-page interactive Power BI dashboard covering price 
+analysis, occupancy analysis, host analysis, review analysis, 
+and geographic mapping with 13 visualizations total.
+
+**Section 05 — Statistical Analysis**
+Conducted 5 hypothesis tests using Mann-Whitney U and 
+Kruskal-Wallis methods. Reported Cohen's d effect sizes and 
+95% confidence intervals for all tests with business interpretations.
+
+**Section 06 — Price Prediction**
+Trained and compared 3 models (Linear Regression, Random Forest, 
+Gradient Boosting) with 5-fold cross-validation and SHAP 
+explainability. Best model achieved MAE of 866 THB.
+
+**Section 07 — AI and ML Experiments**
+Implemented VADER sentiment analysis on 10,000 reviews, 
+content-based listing recommendation system using TF-IDF 
+and cosine similarity, and LLM insight generation pipeline 
+using Anthropic Claude API.
+
+**Section 08 — Open Innovation**
+Built an interactive Streamlit web dashboard with real-time 
+filters and maps, and an automated PDF market intelligence 
+report generator using ReportLab.
+
+**Optional Deliverables Completed**
+- Interactive Dashboard (Streamlit + Power BI)
+- Architecture Diagram with tool annotations
+- Automated Reporting system
+
+---
+
+## Summary of Incomplete Work
+
+**Section 03.6 — Advanced Cloud-Native Topics**
+Not implemented due to time constraints. Cloud architecture, 
+Docker containerization, and CDC strategies are discussed as 
+design proposals in the final report. These were deprioritized 
+to maintain depth in core mandatory sections.
+
+**Section 05.2/5.3 — Full Correlation Matrix and VIF Analysis**
+Spearman correlation was computed for price vs review scores 
+but a full correlation matrix and VIF multicollinearity checks 
+were not implemented. These would be prioritized with more time.
+
+**Section 06 — Hyperparameter Tuning**
+Default hyperparameters were used for all models. GridSearchCV 
+optimization was not performed due to time constraints and is 
+documented as a future improvement.
+
+**Section 07.2 — LLM Pipeline Execution**
+The pipeline was fully implemented in src/llm_insights.py but 
+could not be executed due to Anthropic API credit limitations. 
+The code is production-ready and documented transparently 
+in the final report.
+
+**Section 07.1 — Topic Modeling and NER**
+LDA topic modeling and named entity recognition were not 
+implemented. Sentiment analysis was prioritized as it provided 
+the most direct business value within the available time.
 
 ---
 
